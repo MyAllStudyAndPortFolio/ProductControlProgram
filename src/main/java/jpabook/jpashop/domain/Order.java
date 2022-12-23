@@ -7,6 +7,7 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -25,7 +26,7 @@ public class Order {
 
     private Delivery delivery;
 
-    private LocalDateTime orderDate;
+    private LocalDateTime orderDate;  // 주문시간
 
     private OrderStatus status; // 주문상태 [ORDER, CANCEL];
 }

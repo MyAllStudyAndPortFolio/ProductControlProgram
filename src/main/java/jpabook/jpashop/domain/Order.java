@@ -14,6 +14,7 @@ import java.util.List;
 @Table(name ="orders")
 @Getter@Setter
 public class Order {
+
     @Id @GeneratedValue
     @Column( name = "order_id")
     private Long id;
@@ -22,11 +23,16 @@ public class Order {
     @JoinColumn(name = "number_id")
     private Member member;
 
+    @OneToMany (mappedBy = "order")
     private List<OrderItem> orderItems = new ArrayList<>();
 
+    @OneToOne
+    @JoinColumn (name = "delivery_id")
     private Delivery delivery;
 
+    @Temporal (TemporalType.TIMESTAMP)
     private LocalDateTime orderDate;  // 주문시간
 
+    @Enumerated (EnumType.STRING)
     private OrderStatus status; // 주문상태 [ORDER, CANCEL];
 }

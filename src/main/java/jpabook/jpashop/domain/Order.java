@@ -30,7 +30,6 @@ public class Order {
     @JoinColumn (name = "delivery_id")
     private Delivery delivery;
 
-    @Temporal (TemporalType.TIMESTAMP)
     private LocalDateTime orderDate;  // 주문시간
 
     @Enumerated (EnumType.STRING)

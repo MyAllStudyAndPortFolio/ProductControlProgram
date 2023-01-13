@@ -18,15 +18,15 @@ public class Order {
     @Id @GeneratedValue
     @Column( name = "order_id")
     private Long id;
-
-    @ManyToOne
+    //ManyToOne은 무조건 lazy로 바꾸어야 한다.
+    @ManyToOne (fetch = FetchType.LAZY)
     @JoinColumn(name = "number_id")
     private Member member;
-
-    @OneToMany (mappedBy = "order")
+    //oneToMany는 lazy 가 default 이기 때문에 없애도 된다.
+    @OneToMany (mappedBy = "order" )
     private List<OrderItem> orderItems = new ArrayList<>();
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn (name = "delivery_id")
     private Delivery delivery;
 

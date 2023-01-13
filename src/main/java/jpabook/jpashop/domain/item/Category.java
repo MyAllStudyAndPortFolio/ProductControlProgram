@@ -27,7 +27,7 @@ public class Category {
 
     // 새롭게 양방향 연관관계를 한 것임
     // 다른 엔티티 매핑하는 방식과 같은 형식
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "parent_id")
     private Category parent;
 
